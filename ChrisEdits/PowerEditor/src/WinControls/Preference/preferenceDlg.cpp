@@ -2794,6 +2794,7 @@ BOOL CALLBACK DelimiterSettingsDlg::run_dlgProc(UINT Message, WPARAM wParam, LPA
 
 BOOL CALLBACK SettingsOnCloudDlg::run_dlgProc(UINT Message, WPARAM wParam, LPARAM)
 {
+	NppParameters * pNppParam = NppParameters::getInstance();
 	NppGUI & nppGUI = (NppGUI &)((NppParameters::getInstance())->getNppGUI());
 	switch (Message) 
 	{
@@ -2808,11 +2809,11 @@ BOOL CALLBACK SettingsOnCloudDlg::run_dlgProc(UINT Message, WPARAM wParam, LPARA
 */
 			::SendDlgItemMessage(_hSelf, IDC_NOCLOUD_RADIO, BM_SETCHECK, cloudChoice == noCloud?BST_CHECKED:BST_UNCHECKED, 0);
 
-			/*::SendDlgItemMessage(_hSelf, IDC_DROPBOX_RADIO, BM_SETCHECK, cloudChoice == dropbox?BST_CHECKED:BST_UNCHECKED, 0);
+			::SendDlgItemMessage(_hSelf, IDC_DROPBOX_RADIO, BM_SETCHECK, cloudChoice == dropbox?BST_CHECKED:BST_UNCHECKED, 0);
 			::EnableWindow(::GetDlgItem(_hSelf, IDC_DROPBOX_RADIO), (nppGUI._availableClouds & DROPBOX_AVAILABLE) != 0);
 
 			::SendDlgItemMessage(_hSelf, IDC_ONEDRIVE_RADIO, BM_SETCHECK, cloudChoice == oneDrive?BST_CHECKED:BST_UNCHECKED, 0);
-			::EnableWindow(::GetDlgItem(_hSelf, IDC_ONEDRIVE_RADIO), (nppGUI._availableClouds & ONEDRIVE_AVAILABLE) != 0);*/
+			::EnableWindow(::GetDlgItem(_hSelf, IDC_ONEDRIVE_RADIO), (nppGUI._availableClouds & ONEDRIVE_AVAILABLE) != 0);
 
 			::SendDlgItemMessage(_hSelf, IDC_GOOGLEDRIVE_RADIO, BM_SETCHECK, cloudChoice == googleDrive?BST_CHECKED:BST_UNCHECKED, 0);
 			::EnableWindow(::GetDlgItem(_hSelf, IDC_GOOGLEDRIVE_RADIO), (nppGUI._availableClouds & GOOGLEDRIVE_AVAILABLE) != 0);
@@ -2868,6 +2869,11 @@ BOOL CALLBACK SettingsOnCloudDlg::run_dlgProc(UINT Message, WPARAM wParam, LPARA
 					::SetDlgItemText(_hSelf, IDC_SETTINGSONCLOUD_WARNING_STATIC, message.c_str());
 				}
 				break;
+
+				case IDD_OPENSAVEDIR_ALWAYSON_BROWSE_BUTTON :
+					folderBrowser(_hSelf, IDC_OPENSAVEDIR_ALWAYSON_EDIT);
+					pNppParam->setWorkingDir(nppGUI._defaultDirExp);
+					return TRUE;
 
 				default :
 					return FALSE;
