@@ -2816,7 +2816,6 @@ BOOL CALLBACK SettingsOnCloudDlg::run_dlgProc(UINT Message, WPARAM wParam, LPARA
 
 			::SendDlgItemMessage(_hSelf, IDC_GOOGLEDRIVE_RADIO, BM_SETCHECK, cloudChoice == googleDrive?BST_CHECKED:BST_UNCHECKED, 0);
 			::EnableWindow(::GetDlgItem(_hSelf, IDC_GOOGLEDRIVE_RADIO), (nppGUI._availableClouds & GOOGLEDRIVE_AVAILABLE) != 0);
-			::EnableWindow(::GetDlgItem(_hSelf, IDD_OPENSAVEDIR_ALWAYSON_BROWSE_BUTTON), shouldActivated);
 
 		}
 		break;
