@@ -2794,7 +2794,6 @@ BOOL CALLBACK DelimiterSettingsDlg::run_dlgProc(UINT Message, WPARAM wParam, LPA
 
 BOOL CALLBACK SettingsOnCloudDlg::run_dlgProc(UINT Message, WPARAM wParam, LPARAM)
 {
-	NppParameters * pNppParam = NppParameters::getInstance();
 	NppGUI & nppGUI = (NppGUI &)((NppParameters::getInstance())->getNppGUI());
 	switch (Message) 
 	{
