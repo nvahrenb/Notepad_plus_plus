@@ -2816,6 +2816,7 @@ BOOL CALLBACK SettingsOnCloudDlg::run_dlgProc(UINT Message, WPARAM wParam, LPARA
 
 			::SendDlgItemMessage(_hSelf, IDC_GOOGLEDRIVE_RADIO, BM_SETCHECK, cloudChoice == googleDrive?BST_CHECKED:BST_UNCHECKED, 0);
 			::EnableWindow(::GetDlgItem(_hSelf, IDC_GOOGLEDRIVE_RADIO), (nppGUI._availableClouds & GOOGLEDRIVE_AVAILABLE) != 0);
+
 		}
 		break;
 
@@ -2863,10 +2864,6 @@ BOOL CALLBACK SettingsOnCloudDlg::run_dlgProc(UINT Message, WPARAM wParam, LPARA
 				}
 				break;
 
-				case IDD_OPENSAVEDIR_ALWAYSON_BROWSE_BUTTON :
-					folderBrowser(_hSelf, IDC_OPENSAVEDIR_ALWAYSON_EDIT);
-					return TRUE;
-
 				default :
 					return FALSE;
 					
@@ -2880,7 +2877,6 @@ BOOL CALLBACK SettingsOnCloudDlg::run_dlgProc(UINT Message, WPARAM wParam, LPARA
 void SettingsOnCloudDlg::setCloudChoice(const char *choice)
 {
 	generic_string cloudChoicePath = (NppParameters::getInstance())->getSettingsFolder();
-	//generic_string cloudChoicePath = (NppParameters::getInstance())->getWorkingDir();
 	cloudChoicePath += TEXT("\\cloud\\");
 
 	if (!PathFileExists(cloudChoicePath.c_str()))
@@ -2895,7 +2891,6 @@ void SettingsOnCloudDlg::setCloudChoice(const char *choice)
 void SettingsOnCloudDlg::removeCloudChoice()
 {
 	generic_string cloudChoicePath = (NppParameters::getInstance())->getSettingsFolder();
-	//generic_string cloudChoicePath = (NppParameters::getInstance())->getWorkingDir();
 	//NppParameters *nppParams = ;
 
 	cloudChoicePath += TEXT("\\cloud\\choice");
