@@ -2795,6 +2795,7 @@ BOOL CALLBACK DelimiterSettingsDlg::run_dlgProc(UINT Message, WPARAM wParam, LPA
 BOOL CALLBACK SettingsOnCloudDlg::run_dlgProc(UINT Message, WPARAM wParam, LPARAM)
 {
 	NppGUI & nppGUI = (NppGUI &)((NppParameters::getInstance())->getNppGUI());
+	generic_string message = _initialCloudChoice != nppGUI._cloudChoice?TEXT("Please edit default directory before making cloud setting edits."):TEXT("");
 	switch (Message) 
 	{
 		case WM_INITDIALOG :

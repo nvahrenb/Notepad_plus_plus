@@ -2895,7 +2895,7 @@ void SettingsOnCloudDlg::removeCloudChoice()
 	generic_string cloudChoicePath = (NppParameters::getInstance())->getWorkingDir();
 	//NppParameters *nppParams = ;
 
-	cloudChoicePath += TEXT("\\cloud\\choice");
+	//cloudChoicePath += TEXT("\\cloud\\choice");
 	if (PathFileExists(cloudChoicePath.c_str()))
 	{
 		::DeleteFile(cloudChoicePath.c_str());
