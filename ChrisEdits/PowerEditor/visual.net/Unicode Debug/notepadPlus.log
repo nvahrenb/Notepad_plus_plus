@@ -1,0 +1,128 @@
+﻿Build started 10/13/2014 7:00:05 PM.
+     1>Project "C:\Users\Nathan V\Downloads\npp.6.6.9.src\PowerEditor\visual.net\notepadPlus.vcxproj" on node 2 (Build target(s)).
+     1>ClCompile:
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /I..\src\WinControls\AboutDlg /I..\..\scintilla\include /I..\include /I..\src\WinControls /I..\src\WinControls\ImageListSet /I..\src\WinControls\OpenSaveFileDialog /I..\src\WinControls\SplitterContainer /I..\src\WinControls\StaticDialog /I..\src\WinControls\TabBar /I..\src\WinControls\ToolBar /I..\src\MISC\Process /I..\src\ScitillaComponent /I..\src\MISC /I..\src\MISC\SysMsg /I..\src\WinControls\StatusBar /I..\src /I..\src\WinControls\StaticDialog\RunDlg /I..\src\tinyxml /I..\src\WinControls\ColourPicker /I..\src\Win32Explr /I..\src\MISC\RegExt /I..\src\WinControls\TrayIcon /I..\src\WinControls\shortcut /I..\src\WinControls\Grid /I..\src\WinControls\ContextMenu /I..\src\MISC\PluginsManager /I..\src\WinControls\Preference /I..\src\WinControls\WindowsDlg /I..\src\WinControls\TaskList /I..\src\WinControls\DockingWnd /I..\src\WinControls\ToolTip /I..\src\MISC\Exception /I..\src\MISC\Common /I..\src\tinyxml\tinyXmlA /I..\src\WinControls\AnsiCharPanel /I..\src\WinControls\ClipboardHistory /I..\src\WinControls\FindCharsInRange /I..\src\WinControls\VerticalFileSwitcher /I..\src\WinControls\ProjectPanel /I..\src\WinControls\DocumentMap /I..\src\WinControls\FunctionList /I..\src\uchardet /Zi /nologo /W4 /WX /Od /Oy- /D WIN32 /D _WINDOWS /D _USE_64BIT_TIME_T /D TIXML_USE_STL /D TIXMLA_USE_STL /D _CRT_NONSTDC_NO_DEPRECATE /D _CRT_SECURE_NO_WARNINGS /D _CRT_NON_CONFORMING_SWPRINTFS=1 /D _VC80_UPGRADE=0x0700 /D _UNICODE /D UNICODE /Gm /EHa /MTd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Yc"precompiledHeaders.h" /Fp"Unicode Debug\Notepad++.pch" /Fo"Unicode Debug\\" /Fd"Unicode Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt ..\src\EncodingMapper.cpp ..\src\lastRecentFileList.cpp ..\src\lesDlgs.cpp ..\src\localization.cpp ..\src\MISC\Common\Common.cpp ..\src\MISC\Common\precompiledHeaders.cpp ..\src\MISC\Exception\MiniDumper.cpp ..\src\MISC\Exception\Win32Exception.cpp ..\src\MISC\PluginsManager\IDAllocator.cpp ..\src\Misc\PluginsManager\PluginsManager.cpp ..\src\MISC\Process\Process.cpp ..\src\MISC\RegExt\regExtDlg.cpp ..\src\Notepad_plus.cpp ..\src\Notepad_plus_Window.cpp ..\src\NppBigSwitch.cpp ..\src\NppCommands.cpp ..\src\NppIO.cpp ..\src\NppNotification.cpp ..\src\Parameters.cpp ..\src\ScitillaComponent\AutoCompletion.cpp ..\src\ScitillaComponent\Buffer.cpp ..\src\ScitillaComponent\columnEditor.cpp ..\src\ScitillaComponent\DocTabView.cpp ..\src\ScitillaComponent\FindReplaceDlg.cpp ..\src\ScitillaComponent\FunctionCallTip.cpp ..\src\ScitillaComponent\GoToLineDlg.cpp ..\src\ScitillaComponent\Printer.cpp ..\src\ScitillaComponent\ScintillaCtrls.cpp ..\src\ScitillaComponent\ScintillaEditView.cpp ..\src\ScitillaComponent\SmartHighlighter.cpp ..\src\ScitillaComponent\UserDefineDialog.cpp ..\src\ScitillaComponent\xmlMatchedTagsHighlighter.cpp ..\src\TinyXml\tinystr.cpp ..\src\TinyXml\tinyxml.cpp ..\src\TinyXml\tinyXmlA\tinystrA.cpp ..\src\TinyXml\tinyXmlA\tinyxmlA.cpp ..\src\TinyXml\tinyXmlA\tinyxmlerrorA.cpp ..\src\TinyXml\tinyXmlA\tinyxmlparserA.cpp ..\src\TinyXml\tinyxmlerror.cpp ..\src\TinyXml\tinyxmlparser.cpp ..\src\uchardet\CharDistribution.cpp ..\src\uchardet\JpCntx.cpp ..\src\uchardet\LangBulgarianModel.cpp ..\src\uchardet\LangCyrillicModel.cpp ..\src\uchardet\LangGreekModel.cpp ..\src\uchardet\LangHebrewModel.cpp ..\src\uchardet\LangHungarianModel.cpp ..\src\uchardet\LangThaiModel.cpp ..\src\uchardet\nsBig5Prober.cpp ..\src\uchardet\nsCharSetProber.cpp ..\src\uchardet\nsEscCharsetProber.cpp ..\src\uchardet\nsEscSM.cpp ..\src\uchardet\nsEUCJPProber.cpp ..\src\uchardet\nsEUCKRProber.cpp ..\src\uchardet\nsEUCTWProber.cpp ..\src\uchardet\nsGB2312Prober.cpp ..\src\uchardet\nsHebrewProber.cpp ..\src\uchardet\nsLatin1Prober.cpp ..\src\uchardet\nsMBCSGroupProber.cpp ..\src\uchardet\nsMBCSSM.cpp ..\src\uchardet\nsSBCharSetProber.cpp ..\src\uchardet\nsSBCSGroupProber.cpp ..\src\uchardet\nsSJISProber.cpp ..\src\uchardet\nsUniversalDetector.cpp ..\src\uchardet\nsUTF8Prober.cpp ..\src\uchardet\uchardet.cpp ..\src\UniConversion.cpp ..\src\Utf8_16.cpp ..\src\WinControls\AboutDlg\AboutDlg.cpp ..\src\WinControls\AboutDlg\URLCtrl.cpp ..\src\WinControls\AnsiCharPanel\ansiCharPanel.cpp ..\src\WinControls\AnsiCharPanel\ListView.cpp ..\src\WinControls\ClipboardHistory\clipboardHistoryPanel.cpp ..\src\WinControls\ColourPicker\ColourPicker.cpp ..\src\WinControls\ColourPicker\ColourPopup.cpp ..\src\WinControls\ColourPicker\WordStyleDlg.cpp ..\src\WinControls\ContextMenu\ContextMenu.cpp ..\src\WinControls\DockingWnd\DockingCont.cpp ..\src\WinControls\DockingWnd\DockingManager.cpp ..\src\WinControls\DockingWnd\DockingSplitter.cpp ..\src\WinControls\DockingWnd\Gripper.cpp ..\src\WinControls\DocumentMap\documentMap.cpp ..\src\WinControls\FindCharsInRange\FindCharsInRange.cpp ..\src\WinControls\FunctionList\functionListPanel.cpp ..\src\WinControls\FunctionList\functionParser.cpp ..\src\WinControls\Grid\BabyGrid.cpp ..\src\WinControls\Grid\BabyGridWrapper.cpp ..\src\WinControls\Grid\ShortcutMapper.cpp ..\src\WinControls\ImageListSet\ImageListSet.cpp ..\src\WinControls\OpenSaveFileDialog\FileDialog.cpp ..\src\WinControls\Preference\preferenceDlg.cpp ..\src\WinControls\ProjectPanel\ProjectPanel.cpp ..\src\WinControls\ProjectPanel\TreeView.cpp ..\src\WinControls\shortcut\RunMacroDlg.cpp ..\src\WinControls\shortcut\shortcut.cpp ..\src\WinControls\SplitterContainer\Splitter.cpp ..\src\WinControls\SplitterContainer\SplitterContainer.cpp ..\src\WinControls\StaticDialog\RunDlg\RunDlg.cpp ..\src\WinControls\StaticDialog\StaticDialog.cpp ..\src\WinControls\StatusBar\StatusBar.cpp ..\src\WinControls\TabBar\ControlsTab.cpp ..\src\WinControls\TabBar\TabBar.cpp ..\src\WinControls\TaskList\TaskList.cpp ..\src\WinControls\TaskList\TaskListDlg.cpp ..\src\WinControls\ToolBar\ToolBar.cpp ..\src\WinControls\ToolTip\ToolTip.cpp ..\src\WinControls\TrayIcon\trayIconControler.cpp ..\src\WinControls\VerticalFileSwitcher\VerticalFileSwitcher.cpp ..\src\WinControls\VerticalFileSwitcher\VerticalFileSwitcherListView.cpp ..\src\WinControls\WindowsDlg\SizeableDlg.cpp ..\src\WinControls\WindowsDlg\WindowsDlg.cpp ..\src\WinControls\WindowsDlg\WinMgr.cpp ..\src\WinControls\WindowsDlg\WinRect.cpp ..\src\winmain.cpp
+         winmain.cpp
+         WinRect.cpp
+         WinMgr.cpp
+         WindowsDlg.cpp
+         SizeableDlg.cpp
+         VerticalFileSwitcherListView.cpp
+         VerticalFileSwitcher.cpp
+         trayIconControler.cpp
+         ToolTip.cpp
+         ToolBar.cpp
+         TaskListDlg.cpp
+         TaskList.cpp
+         TabBar.cpp
+         ControlsTab.cpp
+         StatusBar.cpp
+         StaticDialog.cpp
+         RunDlg.cpp
+         SplitterContainer.cpp
+         Splitter.cpp
+         shortcut.cpp
+         RunMacroDlg.cpp
+         TreeView.cpp
+         ProjectPanel.cpp
+         preferenceDlg.cpp
+         FileDialog.cpp
+         ImageListSet.cpp
+         ShortcutMapper.cpp
+         BabyGridWrapper.cpp
+         BabyGrid.cpp
+         functionParser.cpp
+         functionListPanel.cpp
+         FindCharsInRange.cpp
+         documentMap.cpp
+         Gripper.cpp
+         DockingSplitter.cpp
+         DockingManager.cpp
+         DockingCont.cpp
+         ContextMenu.cpp
+         WordStyleDlg.cpp
+         ColourPopup.cpp
+         ColourPicker.cpp
+         clipboardHistoryPanel.cpp
+         ListView.cpp
+         ansiCharPanel.cpp
+         URLCtrl.cpp
+         AboutDlg.cpp
+         Utf8_16.cpp
+         UniConversion.cpp
+         uchardet.cpp
+         nsUTF8Prober.cpp
+         nsUniversalDetector.cpp
+         nsSJISProber.cpp
+         nsSBCSGroupProber.cpp
+         nsSBCharSetProber.cpp
+         nsMBCSSM.cpp
+         nsMBCSGroupProber.cpp
+         nsLatin1Prober.cpp
+         nsHebrewProber.cpp
+         nsGB2312Prober.cpp
+         nsEUCTWProber.cpp
+         nsEUCKRProber.cpp
+         nsEUCJPProber.cpp
+         nsEscSM.cpp
+         nsEscCharsetProber.cpp
+         nsCharSetProber.cpp
+         nsBig5Prober.cpp
+         LangThaiModel.cpp
+         LangHungarianModel.cpp
+         LangHebrewModel.cpp
+         LangGreekModel.cpp
+         LangCyrillicModel.cpp
+         LangBulgarianModel.cpp
+         JpCntx.cpp
+         CharDistribution.cpp
+         tinyxmlparser.cpp
+         tinyxmlerror.cpp
+         tinyxmlparserA.cpp
+         tinyxmlerrorA.cpp
+         tinyxmlA.cpp
+         tinystrA.cpp
+         tinyxml.cpp
+         tinystr.cpp
+         xmlMatchedTagsHighlighter.cpp
+         UserDefineDialog.cpp
+         SmartHighlighter.cpp
+         ScintillaEditView.cpp
+         ScintillaCtrls.cpp
+         Printer.cpp
+         GoToLineDlg.cpp
+         FunctionCallTip.cpp
+         FindReplaceDlg.cpp
+         DocTabView.cpp
+         columnEditor.cpp
+         Buffer.cpp
+         AutoCompletion.cpp
+         Parameters.cpp
+     1>..\src\Parameters.cpp(558): error C2220: warning treated as error - no 'object' file generated
+     1>..\src\Parameters.cpp(558): warning C4996: 'GetVersionExW': was declared deprecated
+                 C:\Program Files (x86)\Windows Kits\8.1\Include\um\sysinfoapi.h(442) : see declaration of 'GetVersionExW'
+     1>..\src\Parameters.cpp(562): warning C4996: 'GetVersionExW': was declared deprecated
+                 C:\Program Files (x86)\Windows Kits\8.1\Include\um\sysinfoapi.h(442) : see declaration of 'GetVersionExW'
+         NppNotification.cpp
+         NppIO.cpp
+         NppCommands.cpp
+         NppBigSwitch.cpp
+         Notepad_plus_Window.cpp
+         Notepad_plus.cpp
+         regExtDlg.cpp
+         Process.cpp
+         PluginsManager.cpp
+         IDAllocator.cpp
+         Win32Exception.cpp
+         MiniDumper.cpp
+         precompiledHeaders.cpp
+         Common.cpp
+         localization.cpp
+         lesDlgs.cpp
+         lastRecentFileList.cpp
+         EncodingMapper.cpp
+     1>Done Building Project "C:\Users\Nathan V\Downloads\npp.6.6.9.src\PowerEditor\visual.net\notepadPlus.vcxproj" (Build target(s)) -- FAILED.
+
+Build FAILED.
+
+Time Elapsed 00:02:58.68
