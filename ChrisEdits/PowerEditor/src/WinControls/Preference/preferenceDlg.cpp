@@ -2876,24 +2876,26 @@ BOOL CALLBACK SettingsOnCloudDlg::run_dlgProc(UINT Message, WPARAM wParam, LPARA
 
 void SettingsOnCloudDlg::setCloudChoice(const char *choice)
 {
-	generic_string cloudChoicePath = (NppParameters::getInstance())->getSettingsFolder();
-	cloudChoicePath += TEXT("\\cloud\\");
+	//generic_string cloudChoicePath = (NppParameters::getInstance())->getSettingsFolder();
+	generic_string cloudChoicePath = (NppParameters::getInstance())->getWorkingDir();
+	/*cloudChoicePath += TEXT("\\cloud\\");
 
 	if (!PathFileExists(cloudChoicePath.c_str()))
 	{
 		::CreateDirectory(cloudChoicePath.c_str(), NULL);
 	}
-	cloudChoicePath += TEXT("choice");
+	cloudChoicePath += TEXT("choice");*/
 	writeFileContent(cloudChoicePath.c_str(), choice);
 
 }
 
 void SettingsOnCloudDlg::removeCloudChoice()
 {
-	generic_string cloudChoicePath = (NppParameters::getInstance())->getSettingsFolder();
+	//generic_string cloudChoicePath = (NppParameters::getInstance())->getSettingsFolder();
+	generic_string cloudChoicePath = (NppParameters::getInstance())->getWorkingDir();
 	//NppParameters *nppParams = ;
 
-	cloudChoicePath += TEXT("\\cloud\\choice");
+	//cloudChoicePath += TEXT("\\cloud\\choice");
 	if (PathFileExists(cloudChoicePath.c_str()))
 	{
 		::DeleteFile(cloudChoicePath.c_str());
