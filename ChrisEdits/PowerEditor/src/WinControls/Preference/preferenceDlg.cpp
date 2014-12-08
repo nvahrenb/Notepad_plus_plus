@@ -2795,7 +2795,7 @@ BOOL CALLBACK DelimiterSettingsDlg::run_dlgProc(UINT Message, WPARAM wParam, LPA
 BOOL CALLBACK SettingsOnCloudDlg::run_dlgProc(UINT Message, WPARAM wParam, LPARAM)
 {
 	NppGUI & nppGUI = (NppGUI &)((NppParameters::getInstance())->getNppGUI());
-	generic_string warning = TEXT((NppParameters::getInstance())->getWorkingDir());
+	generic_string warning = TEXT("Please edit default directory first.");
 	::SetDlgItemText(_hSelf, IDC_SETTINGSONCLOUD_WARNING_STATIC, warning.c_str());
 
 	switch (Message) 
@@ -2880,6 +2880,7 @@ BOOL CALLBACK SettingsOnCloudDlg::run_dlgProc(UINT Message, WPARAM wParam, LPARA
 void SettingsOnCloudDlg::setCloudChoice(const char *choice)
 {
 	generic_string cloudChoicePath = (NppParameters::getInstance())->getSettingsFolder();
+	cout << cloudChoicePath << endl;
 	//generic_string cloudChoicePath = (NppParameters::getInstance())->getWorkingDir();
 	cloudChoicePath += TEXT("\\cloud\\");
 
