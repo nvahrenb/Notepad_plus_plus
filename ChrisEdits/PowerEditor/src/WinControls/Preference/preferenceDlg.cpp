@@ -30,6 +30,7 @@
 #include "preferenceDlg.h"
 #include "lesDlgs.h"
 #include "EncodingMapper.h"
+#include <iostream>
 
 const int BLINKRATE_FASTEST = 50;
 const int BLINKRATE_SLOWEST = 2500;
@@ -2880,9 +2881,10 @@ BOOL CALLBACK SettingsOnCloudDlg::run_dlgProc(UINT Message, WPARAM wParam, LPARA
 void SettingsOnCloudDlg::setCloudChoice(const char *choice)
 {
 	generic_string cloudChoicePath = (NppParameters::getInstance())->getSettingsFolder();
-	cout << cloudChoicePath << endl;
 	//generic_string cloudChoicePath = (NppParameters::getInstance())->getWorkingDir();
 	cloudChoicePath += TEXT("\\cloud\\");
+
+	std::cout << cloudChoicePath.c_str() << "\n";  
 
 	if (!PathFileExists(cloudChoicePath.c_str()))
 	{
