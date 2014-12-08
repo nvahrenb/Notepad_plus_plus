@@ -2795,7 +2795,7 @@ BOOL CALLBACK DelimiterSettingsDlg::run_dlgProc(UINT Message, WPARAM wParam, LPA
 BOOL CALLBACK SettingsOnCloudDlg::run_dlgProc(UINT Message, WPARAM wParam, LPARAM)
 {
 	NppGUI & nppGUI = (NppGUI &)((NppParameters::getInstance())->getNppGUI());
-	generic_string warning = TEXT("Please edit default directory first.");
+	generic_string warning = TEXT((NppParameters::getInstance())->getWorkingDir());
 	::SetDlgItemText(_hSelf, IDC_SETTINGSONCLOUD_WARNING_STATIC, warning.c_str());
 
 	switch (Message) 
@@ -2879,28 +2879,26 @@ BOOL CALLBACK SettingsOnCloudDlg::run_dlgProc(UINT Message, WPARAM wParam, LPARA
 
 void SettingsOnCloudDlg::setCloudChoice(const char *choice)
 {
-	cout << "SettingsOn...\n";
-	//generic_string cloudChoicePath = (NppParameters::getInstance())->getSettingsFolder();
-	generic_string cloudChoicePath = (NppParameters::getInstance())->getWorkingDir();
-	/*cloudChoicePath += TEXT("\\cloud\\");
+	generic_string cloudChoicePath = (NppParameters::getInstance())->getSettingsFolder();
+	//generic_string cloudChoicePath = (NppParameters::getInstance())->getWorkingDir();
+	cloudChoicePath += TEXT("\\cloud\\");
 
 	if (!PathFileExists(cloudChoicePath.c_str()))
 	{
 		::CreateDirectory(cloudChoicePath.c_str(), NULL);
 	}
-	cloudChoicePath += TEXT("choice");*/
+	cloudChoicePath += TEXT("choice");
 	writeFileContent(cloudChoicePath.c_str(), choice);
 
 }
 
 void SettingsOnCloudDlg::removeCloudChoice()
 {
-	cout << "Remove...\n";
-	//generic_string cloudChoicePath = (NppParameters::getInstance())->getSettingsFolder();
-	generic_string cloudChoicePath = (NppParameters::getInstance())->getWorkingDir();
+	generic_string cloudChoicePath = (NppParameters::getInstance())->getSettingsFolder();
+	//generic_string cloudChoicePath = (NppParameters::getInstance())->getWorkingDir();
 	//NppParameters *nppParams = ;
 
-	//cloudChoicePath += TEXT("\\cloud\\choice");
+	cloudChoicePath += TEXT("\\cloud\\choice");
 	if (PathFileExists(cloudChoicePath.c_str()))
 	{
 		::DeleteFile(cloudChoicePath.c_str());
