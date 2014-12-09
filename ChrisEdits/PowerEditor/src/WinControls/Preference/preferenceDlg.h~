@@ -216,7 +216,7 @@ private :
 class SettingsOnCloudDlg : public StaticDialog
 {
 public :
-	SettingsOnCloudDlg(): _initialCloudChoice(noCloud), ccp((NppParameters::getInstance())->getSettingsFolder()) {};
+	SettingsOnCloudDlg(): _initialCloudChoice(noCloud) {};
 
 private :
 	CloudChoice _initialCloudChoice;

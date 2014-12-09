@@ -1205,7 +1205,7 @@ public:
 	bool reloadStylers(TCHAR *stylePath = NULL);
     void destroyInstance();
 	generic_string getCloudSettingsPath(CloudChoice cloudChoice);
-	generic_string getSettingsFolder();
+	generic_string MAXgetSettingsFolder();
 
 	bool _isTaskListRBUTTONUP_Active;
 	int L_END;

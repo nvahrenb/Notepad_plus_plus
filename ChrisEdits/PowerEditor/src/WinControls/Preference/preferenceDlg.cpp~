@@ -30,7 +30,6 @@
 #include "preferenceDlg.h"
 #include "lesDlgs.h"
 #include "EncodingMapper.h"
-#include <iostream>
 
 const int BLINKRATE_FASTEST = 50;
 const int BLINKRATE_SLOWEST = 2500;
@@ -2796,8 +2795,6 @@ BOOL CALLBACK DelimiterSettingsDlg::run_dlgProc(UINT Message, WPARAM wParam, LPA
 BOOL CALLBACK SettingsOnCloudDlg::run_dlgProc(UINT Message, WPARAM wParam, LPARAM)
 {
 	NppGUI & nppGUI = (NppGUI &)((NppParameters::getInstance())->getNppGUI());
-	generic_string warning = TEXT("Please edit default directory first.");
-	::SetDlgItemText(_hSelf, IDC_SETTINGSONCLOUD_WARNING_STATIC, warning.c_str());
 
 	switch (Message) 
 	{
@@ -2805,6 +2802,15 @@ BOOL CALLBACK SettingsOnCloudDlg::run_dlgProc(UINT Message, WPARAM wParam, LPARA
 		{
 			CloudChoice cloudChoice = nppGUI._cloudChoice;
 			_initialCloudChoice = nppGUI._cloudChoice;
+			
+			generic_string cloudChoicePath = ccp;
+			cloudChoicePath += TEXT("\\cloud\\");
+
+			if (!PathFileExists(cloudChoicePath.c_str()))
+			{
+				::CreateDirectory(cloudChoicePath.c_str(), NULL);
+			}
+			
 /*
 			COLORREF bgColor = getCtrlBgColor(_hSelf);
 			SetTextColor(hdcStatic, RGB(255, 0, 0));
@@ -2820,7 +2826,6 @@ BOOL CALLBACK SettingsOnCloudDlg::run_dlgProc(UINT Message, WPARAM wParam, LPARA
 
 			::SendDlgItemMessage(_hSelf, IDC_GOOGLEDRIVE_RADIO, BM_SETCHECK, cloudChoice == googleDrive?BST_CHECKED:BST_UNCHECKED, 0);
 			::EnableWindow(::GetDlgItem(_hSelf, IDC_GOOGLEDRIVE_RADIO), (nppGUI._availableClouds & GOOGLEDRIVE_AVAILABLE) != 0);
-
 		}
 		break;
 
@@ -2832,9 +2837,6 @@ BOOL CALLBACK SettingsOnCloudDlg::run_dlgProc(UINT Message, WPARAM wParam, LPARA
 				{
 					nppGUI._cloudChoice = noCloud;
 					removeCloudChoice();
-					
-					generic_string message = _initialCloudChoice != nppGUI._cloudChoice?TEXT("Please restart Notepad++ to take effect."):TEXT("");
-					::SetDlgItemText(_hSelf, IDC_SETTINGSONCLOUD_WARNING_STATIC, message.c_str());
 				}
 				break;
 
@@ -2842,9 +2844,6 @@ BOOL CALLBACK SettingsOnCloudDlg::run_dlgProc(UINT Message, WPARAM wParam, LPARA
 				{
 					nppGUI._cloudChoice = dropbox;
 					setCloudChoice("dropbox");
-
-					generic_string message = _initialCloudChoice != nppGUI._cloudChoice?TEXT("Please restart Notepad++ to take effect."):TEXT("");
-					::SetDlgItemText(_hSelf, IDC_SETTINGSONCLOUD_WARNING_STATIC, message.c_str());
 				}
 				break;
 
@@ -2852,9 +2851,6 @@ BOOL CALLBACK SettingsOnCloudDlg::run_dlgProc(UINT Message, WPARAM wParam, LPARA
 				{
 					nppGUI._cloudChoice = oneDrive;
 					setCloudChoice("oneDrive");
-
-					generic_string message = _initialCloudChoice != nppGUI._cloudChoice?TEXT("Please restart Notepad++ to take effect."):TEXT("");
-					::SetDlgItemText(_hSelf, IDC_SETTINGSONCLOUD_WARNING_STATIC, message.c_str());
 				}
 				break;
 
@@ -2862,9 +2858,6 @@ BOOL CALLBACK SettingsOnCloudDlg::run_dlgProc(UINT Message, WPARAM wParam, LPARA
 				{
 					nppGUI._cloudChoice = googleDrive;
 					setCloudChoice("googleDrive");
-
-					generic_string message = _initialCloudChoice != nppGUI._cloudChoice?TEXT("Please restart Notepad++ to take effect."):TEXT("");
-					::SetDlgItemText(_hSelf, IDC_SETTINGSONCLOUD_WARNING_STATIC, message.c_str());
 				}
 				break;
 
@@ -2872,6 +2865,8 @@ BOOL CALLBACK SettingsOnCloudDlg::run_dlgProc(UINT Message, WPARAM wParam, LPARA
 					return FALSE;
 					
 			}
+			generic_string message = _initialCloudChoice != nppGUI._cloudChoice?TEXT("Please restart Notepad++ to take effect."):TEXT("");
+			::SetDlgItemText(_hSelf, IDC_SETTINGSONCLOUD_WARNING_STATIC, message.c_str());
 		}
 		break;
 	}
@@ -2880,25 +2875,15 @@ BOOL CALLBACK SettingsOnCloudDlg::run_dlgProc(UINT Message, WPARAM wParam, LPARA
 
 void SettingsOnCloudDlg::setCloudChoice(const char *choice)
 {
-	generic_string cloudChoicePath = (NppParameters::getInstance())->getSettingsFolder();
-	//generic_string cloudChoicePath = (NppParameters::getInstance())->getWorkingDir();
-	cloudChoicePath += TEXT("\\cloud\\");
+	generic_string cloudChoicePath = ccp;
+	cloudChoicePath += TEXT("\\cloud\\choice");
 
-	std::cout << cloudChoicePath.c_str() << endl;  
-
-	if (!PathFileExists(cloudChoicePath.c_str()))
-	{
-		::CreateDirectory(cloudChoicePath.c_str(), NULL);
-	}
-	cloudChoicePath += TEXT("choice");
 	writeFileContent(cloudChoicePath.c_str(), choice);
-
 }
 
 void SettingsOnCloudDlg::removeCloudChoice()
 {
 	generic_string cloudChoicePath = (NppParameters::getInstance())->getSettingsFolder();
-	//generic_string cloudChoicePath = (NppParameters::getInstance())->getWorkingDir();
 	//NppParameters *nppParams = ;
 
 	cloudChoicePath += TEXT("\\cloud\\choice");
